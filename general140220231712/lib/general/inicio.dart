@@ -35,8 +35,9 @@ class _InicioState extends State<Inicio> {
           })),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.pushNamed(context, '/agregarP');
+        onPressed: () async {
+          await Navigator.pushNamed(context, '/agregarP');
+          setState(() {});
         },
       ),
     );

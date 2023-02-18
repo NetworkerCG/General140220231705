@@ -17,3 +17,7 @@ Future<List> getPersonas() async {
   });
   return personas;
 }
+
+Future<void> agregarPersonas(String nombre) async {
+  await basedatos.collection("Persona").add({"nombreP": nombre});
+}
