@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //Importaciones de firebase
 import 'package:firebase_core/firebase_core.dart';
+import 'package:general140220231712/general/agregarP.dart';
 import 'firebase_options.dart';
 import 'general/inicio.dart';
 
@@ -21,6 +22,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        '/': ((context) => const Inicio(
+              title: '',
+            )),
+        '/agregarP': ((context) => AgregarP())
+      },
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -33,7 +41,6 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

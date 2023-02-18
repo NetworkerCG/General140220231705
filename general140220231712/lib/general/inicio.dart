@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:general140220231712/servicios/firebase_servicios.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class Inicio extends StatefulWidget {
+  const Inicio({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Inicio> createState() => _InicioState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             }
           })),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushNamed(context, '/agregarP');
+        },
+      ),
     );
   }
 }
