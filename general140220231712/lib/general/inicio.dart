@@ -17,17 +17,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      // body: FutureBuilder(
-      //     future: getPersonas(),
-      //     builder: ((context, snapshot) {
-      //       return ListView.builder(
-      //         itemCount: snapshot.data?.length,
-      //         itemBuilder: (context, index) {
-      //           return Text(snapshot.data?[index]['nombreP']);
-      //         },
-      //       );
-      //     })),
-      body: Text("Hola Mundo"),
+      body: FutureBuilder(
+          future: getPersonas(),
+          builder: ((context, AsyncSnapshot<List<dynamic>> snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  return Text(snapshot.data?[index]['nombreP']);
+                },
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          })),
     );
   }
 }
