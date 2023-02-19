@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //Importaciones de firebase
 import 'package:firebase_core/firebase_core.dart';
 import 'package:general140220231712/general/agregarP.dart';
+import 'package:general140220231712/general/editarP.dart';
 import 'firebase_options.dart';
 import 'general/inicio.dart';
 
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/': ((context) => const Inicio(
               title: '',
             )),
-        '/agregarP': ((context) => AgregarP())
+        '/agregarP': ((context) => AgregarP()),
+        '/editarP': ((context) => EditarP())
       },
       theme: ThemeData(
         // This is the theme of your application.

@@ -11,13 +11,20 @@ Future<List> getPersonas() async {
   //trae todos los documentos de la base de datos
   QuerySnapshot queryPersona = await collectionReferencePersonas.get();
   //iteracion para cada uno de los documentos
-  queryPersona.docs.forEach((documento) {
+  for (var documento in queryPersona.docs) {
+    final Map<String, dynamic> datos = documento.data() as Map<String, dynamic>;
+    final persona = {"nombreP": datos['nombreP'], "id": documento.id};
+
     //se agrega los datos a la lista que vienen de los documentos de la base de datos
-    personas.add(documento.data());
-  });
+    personas.add(persona);
+  }
   return personas;
 }
 
 Future<void> agregarPersonas(String nombre) async {
   await basedatos.collection("Persona").add({"nombreP": nombre});
+}
+
+Future<void> actualizarPersonas(String id, String nuevoNombre) async {
+  await basedatos.collection("Persona").doc(id).set({"nombreP": nuevoNombre});
 }
